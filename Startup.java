@@ -1,6 +1,9 @@
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashSet;
 
+
+enum Major { COMPUTERSCIENCE, BUSINESS, PSYCHOLOGY, COMMUNICATIONS };
 /**
  * Startup
  */
@@ -8,45 +11,43 @@ public class Startup {
     static int classLocal;
 
     public static void main(String[] args) {
-        Circle circle = new Circle();
-        circle.radius = 5;
-        System.out.println("Circle 1s radius " + circle);
-
-        Circle circle2 = circle;
-        System.out.println("Circle 2s radius " + circle2);
-
-        circle.radius = 10;
-        //System.out.println("Circle 2s radius " + circle2.radius);
-
-        int radius = 5;
-        System.out.println("radius1 " + radius);
-
-        int radius2 = radius;
-        System.out.println("radius2 " + radius2);
-
-        radius = 76;
-        System.out.println("radius2 " + radius2);
-
-        String name = "Melissa";
-        String name1 = "Melissa12";
-
-        System.out.println(name.toUpperCase());
-
         Student student = new Student();
-        System.out.println(student);
-        System.out.println(student.name);
+        student.major = Major.COMPUTERSCIENCE;
         student.name = "Melissa";
-        System.out.println(student.name);
-        student.GPA = Float.parseFloat("4537.1");
-        System.out.println("GPA $" + student.GPA);
-        //System.out.println(local);
-        System.out.println(classLocal);
+        student.dateOfBirth = LocalDate.of(1994, 5, 2);
+        System.out.println(student);
+        System.out.println(student.getAge());
 
-        System.out.println(vowels("vetstotech"));
-        System.out.println(calcVowels("vetstotEch"));
-        System.out.println(getVowels("vetstotech"));
+        Student student2 = new Student();
+        student2.major = Major.PSYCHOLOGY;
+        student2.name = "Peter";
+        student2.dateOfBirth = LocalDate.of(1991, 7, 3);
+        System.out.println(student2.toString("Hegney"));
+        System.out.println(student2.getAge());
+
+        if (student.major == Major.COMPUTERSCIENCE) {
+            System.out.println("Computers are the best");
+        }
 
 
+        Car car1 = new Car();
+        car1.setHorsePower(14);
+        car1.setCarStyle(CarStyle.SUV);
+        car1.setPowerType(PowerType.UNLEADED);
+
+        Car car2 = new Car();
+
+        Car car3 = new Car();
+        car3.setHorsePower(195);
+
+        System.out.println(car1.getHorsePower());
+        System.out.println(car2.getHorsePower());
+        System.out.println(car3.getHorsePower());
+
+
+        Instructor teacher = new Instructor();
+        teacher.email = "mhegney@stmartin.edu";
+        Instructor teacher2 = new Instructor();
     }
 
     public static double harmonic(int n) {
